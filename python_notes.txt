@@ -1,0 +1,176 @@
+PS C:\Users\DELL\OneDrive\Desktop\Assignment\Part3> & C:/Users/DELL/AppData/Local/Microsoft/WindowsApps/python3.11.exe c:/Users/DELL/OneDrive/Desktop/Assignment/Part3/part3_api_files.py
+
+======================================================================
+TASK 1: FILE READ & WRITE BASICS
+======================================================================
+
+--- PART A: Writing to File ---
+[OK] Wrote 5 lines to python_notes.txt
+[OK] Appended 2 additional lines to python_notes.txt
+
+--- PART B: Reading from File ---
+
+[OK] Read file. Total lines: 7
+
+File contents (numbered):
+------------------------------------------------------------
+  1. Topic 1: Variables store data. Python is dynamically typed.
+  2. Topic 2: Lists are ordered and mutable.
+  3. Topic 3: Dictionaries store key-value pairs.
+  4. Topic 4: Loops automate repetitive tasks.
+  5. Topic 5: Exception handling prevents crashes.
+  6. Topic 6: Python is fun.
+  7. Topic 7: Python can declare results.
+
+[OK] Total number of lines in file: 7
+
+Enter a keyword to search in file: crashes
+
+[OK] Found 1 line(s) containing 'crashes':
+  → Topic 5: Exception handling prevents crashes.
+
+
+======================================================================
+TASK 2: API INTEGRATION
+======================================================================
+
+--- STEP 1: Fetch and Display Products ---
+[OK] Fetched 20 products
+
+Formatted Product Table:
+--------------------------------------------------------------------------------
+ID    | Title                     | Category        | Price      | Rating
+--------------------------------------------------------------------------------
+1     | Essence Mascara Lash Pr   | beauty          | $9.99      | 2.56
+2     | Eyeshadow Palette with    | beauty          | $19.99     | 2.86
+3     | Powder Canister           | beauty          | $14.99     | 4.64
+4     | Red Lipstick              | beauty          | $12.99     | 4.36
+5     | Red Nail Polish           | beauty          | $8.99      | 4.32
+6     | Calvin Klein CK One       | fragrances      | $49.99     | 4.37
+7     | Chanel Coco Noir Eau De   | fragrances      | $129.99    | 4.26
+8     | Dior J'adore              | fragrances      | $89.99     | 3.80
+9     | Dolce Shine Eau de        | fragrances      | $69.99     | 3.96
+10    | Gucci Bloom Eau de        | fragrances      | $79.99     | 2.74
+--------------------------------------------------------------------------------
+
+--- STEP 2: Filter (Rating ≥ 2.5) and Sort by Price (Descending) ---
+[OK] Filtered 20 products with rating ≥ 2.5
+
+Filtered & Sorted Product List:
+--------------------------------------------------------------------------------
+Rank  | Title                     | Price      | Rating
+--------------------------------------------------------------------------------
+1     | Annibale Colombo Sofa     | $2499.99   | 3.92
+2     | Annibale Colombo Bed      | $1899.99   | 4.77
+3     | Wooden Bathroom Sink Wi   | $799.99    | 3.59
+4     | Knoll Saarinen Executiv   | $499.99    | 4.88
+5     | Bedside Table African C   | $299.99    | 2.87
+6     | Chanel Coco Noir Eau De   | $129.99    | 4.26
+7     | Dior J'adore              | $89.99     | 3.80
+8     | Gucci Bloom Eau de        | $79.99     | 2.74
+9     | Dolce Shine Eau de        | $69.99     | 3.96
+10    | Calvin Klein CK One       | $49.99     | 4.37
+--------------------------------------------------------------------------------
+
+--- STEP 3: Search by Category (Laptops) ---
+[OK] Found 5 laptops in database
+
+Laptops Available:
+------------------------------------------------------------
+  1. Apple MacBook Pro 14 Inch Space Grey          - $1999.99
+  2. Asus Zenbook Pro Dual Screen Laptop           - $1799.99
+  3. Huawei Matebook X Pro                         - $1399.99
+  4. Lenovo Yoga 920                               - $1099.99
+  5. New DELL XPS 13 9300 Laptop                   - $1499.99
+------------------------------------------------------------
+
+--- STEP 4: POST Request (Create New Product) ---
+[OK] Sent POST request
+
+Server Response:
+------------------------------------------------------------
+{
+  "id": 195,
+  "title": "My Custom Product",
+  "price": 999,
+  "description": "A product I created via API",
+  "category": "electronics"
+}
+------------------------------------------------------------
+
+
+======================================================================
+TASK 3: EXCEPTION HANDLING
+======================================================================
+
+--- PART A: Guarded Calculator ---
+Testing safe_divide() function:
+------------------------------------------------------------
+[OK] safe_divide(10, 2) [Normal division]
+  → Result: 5.0
+[OK] safe_divide(10, 0) [Division by zero]
+  → Result: Error: Cannot divide by zero
+[OK] safe_divide(ten, 2) [Invalid input type]
+  → Result: Error: Invalid input types
+
+--- PART B: Guarded File Reader ---
+
+Testing read_file_safe() function:
+------------------------------------------------------------
+
+→ Attempting to read 'python_notes.txt':
+ℹ File operation attempt complete for 'python_notes.txt'.
+[OK] Read 294 characters
+
+
+→ Attempting to read non-existent 'ghost_file.txt':
+[ERROR] Error: File 'ghost_file.txt' not found.
+ℹ File operation attempt complete for 'ghost_file.txt'.
+
+--- PART C: Robust API Calls ---
+Safely fetching product details:
+------------------------------------------------------------
+[OK] Product found: Essence Mascara Lash Princess - $9.99
+
+Attempting to fetch non-existent product (ID: 999):
+[ERROR] HTTP Error: 404 Client Error: Not Found for url: https://dummyjson.com/products/999
+
+--- PART D: Input Validation Loop ---
+Product lookup with input validation:
+------------------------------------------------------------
+
+Iteration 1: Enter a product ID to look up (1-50), or 'quit' to exit: 30
+[OK] Product found: Kiwi - $2.49
+
+Iteration 2: Enter a product ID to look up (1-50), or 'quit' to exit: 31
+[OK] Product found: Lemon - $0.79
+
+Iteration 3: Enter a product ID to look up (1-50), or 'quit' to exit: 21
+[OK] Product found: Cucumber - $1.49
+
+
+======================================================================
+TASK 4: LOGGING TO FILE
+======================================================================
+
+Logging Demonstration:
+------------------------------------------------------------
+
+→ Simulating Connection Error (unreachable URL):
+[OK] Logged error to error_log.txt: ConnectionError - HTTPConnectionPool(host='this-host-does-not-exist-
+
+→ Simulating HTTP Error (Product not found - ID: 999):
+[OK] Logged error to error_log.txt: HTTPError - Product ID 999 not found (Status: 404)
+
+--- Error Log Contents ---
+------------------------------------------------------------
+[2026-04-04 11:22:16] ERROR in fetch_products: ConnectionError - HTTPConnectionPool(host='this-host-does-not-exist-
+[2026-04-04 11:22:17] ERROR in fetch_product: HTTPError - Product ID 999 not found (Status: 404)
+[2026-04-05 16:16:41] ERROR in fetch_products: ConnectionError - HTTPConnectionPool(host='this-host-does-not-exist-
+[2026-04-05 16:16:43] ERROR in fetch_product: HTTPError - Product ID 999 not found (Status: 404)
+
+------------------------------------------------------------
+[OK] Error log created and populated.
+
+======================================================================
+PS C:\Users\DELL\OneDrive\Desktop\Assignment\Part3>

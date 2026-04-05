@@ -1,0 +1,4 @@
+[2026-04-04 11:22:16] ERROR in fetch_products: ConnectionError - HTTPConnectionPool(host='this-host-does-not-exist-
+[2026-04-04 11:22:17] ERROR in fetch_product: HTTPError - Product ID 999 not found (Status: 404)
+[2026-04-05 16:16:41] ERROR in fetch_products: ConnectionError - HTTPConnectionPool(host='this-host-does-not-exist-
+[2026-04-05 16:16:43] ERROR in fetch_product: HTTPError - Product ID 999 not found (Status: 404)
